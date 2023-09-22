@@ -17,6 +17,9 @@ export const InputContainer = styled.div`
   padding: 0.5625rem 1rem;
   gap: 0.25rem;
   max-width: 20rem;
+  &:focus-within {
+    outline: #737380 solid 0.125rem;
+  }
   @media (max-width: 768px) {
     max-width: none;
   }

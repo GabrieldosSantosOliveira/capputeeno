@@ -3,7 +3,6 @@ import { Header } from '@/components/Header/Header'
 import { Product } from '@/components/Product/Product'
 import { Products } from '@/components/Products/Products'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import styled from 'styled-components'
 export interface Product {
   name: string
   id: string
@@ -32,20 +31,14 @@ export const getStaticProps: GetStaticProps<{
   const products = await res.json()
   return { props: { products: products.data.allProducts } }
 }
-const Main = styled.main`
-  display: grid;
-  padding: 2rem 5rem;
-`
 export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
       <Header />
-      <Main>
-        <FilterBar />
-        <Products products={products} />
-      </Main>
+      <FilterBar />
+      <Products products={products} />
     </div>
   )
 }
